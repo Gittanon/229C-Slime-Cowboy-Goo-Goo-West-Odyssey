@@ -4,6 +4,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
 
+    public int scoreValue = 100;
+
     int currentHealth;
 
     void Start()
@@ -17,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
 
         Debug.Log("Enemy HP : " + currentHealth);
 
+
         if(currentHealth <= 0)
         {
             Die();
@@ -25,6 +28,11 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+
+        ScoreManager.instance.AddScore(
+            scoreValue
+        );
+
         Debug.Log("Enemy Died");
         Destroy(gameObject);
     }
