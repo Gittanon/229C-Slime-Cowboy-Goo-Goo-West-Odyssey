@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Player2DController : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
     public float speed = 5.0f;
     public float jumpForce = 150;
     public bool isGrounded = true;
@@ -16,17 +17,39 @@ public class Player2DController : MonoBehaviour
     }
     void Update()
     {
-        if (Keyboard.current != null) // รับ Input จาก Keyboard กด D = +1 (ขวา), A = -1 (ซ้าย)
+
+        if(moveValue > 0)
         {
-            moveValue = (Keyboard.current.dKey.isPressed ? 1f : 0) - (Keyboard.current.aKey.isPressed ? 1f : 0);
+            transform.localScale = new Vector3(1,1,1);
+        }
+        else if(moveValue < 0)
+        {
+            transform.localScale = new Vector3(-1,1,1);
         }
 
-        _rb.linearVelocity = new Vector2(moveValue * speed, _rb.linearVelocity.y); // ขยับโดยการเพิ่มความเร็วตามติดทาง Input * Speed
+        if (Keyboard.current != null) 
+        {
+            moveValue = (Keyboard.current.dKey.isPressed ? 1f : 0) - (Keyboard.current.aKey.isPressed ? 1f : 0);
+
+
+        }
+
+        if (moveValue != 0) 
+        {
+            _animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            _animator.SetBool("isRunning", false);
+        }
+
+
+        _rb.linearVelocity = new Vector2(moveValue * speed, _rb.linearVelocity.y); 
         
         // Jump Logic
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded) // กด Spacebar // พร้อมเช็คว่าอยู่ที่พื้นมั้ย
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded) 
         {
-            _rb.AddForce(new Vector2(_rb.linearVelocity.x, jumpForce)); // เพิ่มแรงเมื่อกด spacebar เพื่อกระโดด
+            _rb.AddForce(new Vector2(_rb.linearVelocity.x, jumpForce)); 
             Debug.Log("Jump");
         }
     }

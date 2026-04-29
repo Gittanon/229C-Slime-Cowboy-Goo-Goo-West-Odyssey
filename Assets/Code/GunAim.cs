@@ -4,25 +4,20 @@ public class GunAim : MonoBehaviour
 {
     void Update()
     {
-        Vector3 mousePos =
-            Camera.main.ScreenToWorldPoint(
-            Input.mousePosition);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
 
-        Vector2 dir =
-            mousePos - transform.position;
+        Vector3 dir = mousePos - transform.position;
 
-        float angle =
-            Mathf.Atan2(dir.y,dir.x) *
-            Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        transform.rotation =
-            Quaternion.Euler(0,0,angle);
+        // หมุนปืน
+        transform.rotation = Quaternion.Euler(0,0,angle);
 
-        if(mousePos.x < transform.position.x)
-            transform.localScale =
-                new Vector3(1,-1,1);
+        // Flip เมื่อเมาส์อยู่ซ้ายตัวละคร
+        if (dir.x < 0)
+            transform.localScale = new Vector3(1,-1,1);
         else
-            transform.localScale =
-                new Vector3(1,1,1);
+            transform.localScale = new Vector3(1,1,1);
     }
 }
