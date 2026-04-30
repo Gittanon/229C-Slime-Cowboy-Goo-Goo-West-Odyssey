@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6130645561400494110}
   - component: {fileID: -2482796423765026732}
   - component: {fileID: -976935666989494130}
-  - component: {fileID: 6417419104057749535}
+  - component: {fileID: -5920935295838909008}
   m_Layer: 0
   m_Name: Bullet 1
   m_TagString: Bullet
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!58 &-976935666989494130
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &6417419104057749535
+--- !u!114 &-5920935295838909008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagneticBullet
   target: {fileID: 0}
-  initialSpeed: 8
-  magneticForce: 15
-  maxSpeed: 12
+  initialSpeed: 2
+  magneticForce: 200
+  maxSpeed: 10
   lifeTime: 5
 --- !u!1 &8569196085609912907
 GameObject:

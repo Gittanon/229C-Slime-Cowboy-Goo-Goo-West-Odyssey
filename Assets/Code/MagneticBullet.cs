@@ -5,7 +5,7 @@ public class MagneticBullet : MonoBehaviour
     public Transform target;
 
     public float initialSpeed = 8f;
-    public float magneticForce = 50f;
+    public float magneticForce = 5000f;
     public float maxSpeed = 25f;
 
     public float lifeTime = 5f; // อยู่ได้ 5 วินาที
@@ -35,27 +35,32 @@ public class MagneticBullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(target == null) return;
+if(target == null) return;
 
-        Vector2 direction =
-        ((Vector2)target.position - rb.position).normalized;
+    Vector2 toTarget = (Vector2)target.position - rb.position;
 
-        rb.AddForce(direction * magneticForce);
+    float distance = toTarget.magnitude;
 
-        if(rb.linearVelocity.magnitude > maxSpeed)
-        {
-            rb.linearVelocity =
-            rb.linearVelocity.normalized * maxSpeed;
-        }
+    Vector2 direction = toTarget.normalized;
 
-        float angle =
-        Mathf.Atan2(
-            rb.linearVelocity.y,
-            rb.linearVelocity.x
-        ) * Mathf.Rad2Deg;
+    float gravityStrength = magneticForce / (distance * distance);
 
-        transform.rotation =
-        Quaternion.Euler(0,0,angle);
+    rb.AddForce(direction * gravityStrength);
+
+    if(rb.linearVelocity.magnitude > maxSpeed)
+    {
+        rb.linearVelocity =
+        rb.linearVelocity.normalized * maxSpeed;
+    }
+
+    float angle =
+    Mathf.Atan2(
+        rb.linearVelocity.y,
+        rb.linearVelocity.x
+    ) * Mathf.Rad2Deg;
+
+    transform.rotation =
+    Quaternion.Euler(0,0,angle);
     }
 
     void OnTriggerEnter2D(Collider2D other)
