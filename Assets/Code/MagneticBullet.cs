@@ -35,7 +35,7 @@ public class MagneticBullet : MonoBehaviour
 
     void FixedUpdate()
     {
-if(target == null) return;
+    if(target == null) return;
 
     Vector2 toTarget = (Vector2)target.position - rb.position;
 
