@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "229C-Slime-Cowboy-Slime-Cowboy.slnx"
+    "dotnet.defaultSolution": "229C-Slime-Cowboy-Goo-Goo-West-Odyssey.slnx"
 }
