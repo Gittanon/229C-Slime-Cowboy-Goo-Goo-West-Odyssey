@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class BossHealth : MonoBehaviour
 {
     public int maxHealth = 100;
 
@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+    
     }
 
     public void TakeDamage(int damage)
@@ -20,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("Enemy HP : " + currentHealth);
 
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -35,6 +36,6 @@ public class EnemyHealth : MonoBehaviour
 
         Debug.Log("Enemy Died");
         Destroy(gameObject);
-        
+        GameManager.instance.GameOver();
     }
 }

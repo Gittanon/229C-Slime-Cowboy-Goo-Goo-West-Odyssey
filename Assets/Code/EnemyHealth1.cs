@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth1 : MonoBehaviour
 {
     public int maxHealth = 100;
 
@@ -29,12 +29,12 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
 
-        ScoreManager.instance.AddScore(
-            scoreValue
-        );
+   Debug.Log("Boss Died");
 
-        Debug.Log("Enemy Died");
+        ScoreManager.instance.AddScore(scoreValue);
+
+        GameManager.instance.GameOver(); // 🔥 ตัวสำคัญ
+
         Destroy(gameObject);
-        
     }
 }

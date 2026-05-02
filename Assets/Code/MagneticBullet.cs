@@ -8,7 +8,7 @@ public class MagneticBullet : MonoBehaviour
     public float magneticForce = 5000f;
     public float maxSpeed = 25f;
 
-    public float lifeTime = 5f; // อยู่ได้ 5 วินาที
+    public float lifeTime = 3.5f; // อยู่ได้ 5 วินาที
 
     Rigidbody2D rb;
 

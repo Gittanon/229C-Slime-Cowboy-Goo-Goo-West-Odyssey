@@ -25,14 +25,17 @@ public class Bullet : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-
-            if(enemy != null)
+            var enemy = other.GetComponentInParent<EnemyHealth>();
+            if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
 
-            Destroy(gameObject); // กระสุนหายเมื่อโดน
+            var boss = other.GetComponentInParent<BossHealth>();
+            if (boss != null)
+            {
+                boss.TakeDamage(damage);
+            }
         }
     }
 }
