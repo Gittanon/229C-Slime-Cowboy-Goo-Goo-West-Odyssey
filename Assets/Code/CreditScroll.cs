@@ -13,6 +13,6 @@ public class CreditScroll : MonoBehaviour
 
     void Update()
     {
-        rect.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
+        rect.anchoredPosition += Vector2.up * scrollSpeed * Time.unscaledDeltaTime;
     }
 }
