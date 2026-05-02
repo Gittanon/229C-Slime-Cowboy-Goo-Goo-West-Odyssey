@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 623407142749893011}
   - component: {fileID: 6130645561400494110}
-  - component: {fileID: 6763443919964333969}
   - component: {fileID: -2482796423765026732}
   - component: {fileID: -976935666989494130}
+  - component: {fileID: -5920935295838909008}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet 2
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.65431, y: -1.9004, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6208611009133799831}
   m_Father: {fileID: 0}
@@ -95,19 +95,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
---- !u!114 &6763443919964333969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4086021521333665587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47949d48306dee141888297341979d5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  damage: 20
 --- !u!50 &-2482796423765026732
 Rigidbody2D:
   serializedVersion: 5
@@ -134,7 +121,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!58 &-976935666989494130
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -171,6 +158,23 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &-5920935295838909008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086021521333665587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de70f5bf4d25fef418d6f332630bbce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagneticBullet
+  target: {fileID: 0}
+  initialSpeed: 1
+  magneticForce: 200
+  maxSpeed: 8
+  lifeTime: 5
 --- !u!1 &8569196085609912907
 GameObject:
   m_ObjectHideFlags: 0

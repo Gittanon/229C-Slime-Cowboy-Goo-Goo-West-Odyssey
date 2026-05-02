@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagneticBullet
   target: {fileID: 0}
-  initialSpeed: 2
+  initialSpeed: 1
   magneticForce: 200
-  maxSpeed: 10
+  maxSpeed: 8
   lifeTime: 5
 --- !u!1 &8569196085609912907
 GameObject:
